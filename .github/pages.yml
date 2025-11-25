@@ -1,0 +1,24 @@
+media: # Où seront stockées les images
+  input: images
+  output: /images
+
+content:
+  - name: posts # Le nom dans le menu
+    label: Articles
+    path: _posts # Le dossier où Jekyll range les articles
+    type: collection
+    filename: '{year}-{month}-{day}-{slug}' # Format de fichier obligatoire pour Jekyll
+    view:
+      fields: [title, date, published] # Ce qu'on voit dans la liste
+    fields: # Les champs à remplir pour chaque article
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: body
+        label: Contenu
+        type: rich-text # Un éditeur de texte complet
